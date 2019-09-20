@@ -7,8 +7,11 @@
 </head>
 <body>
 	<h1>Index</h1>
-	<div>
-		employees table total row count : <%=request.getAttribute("employeesRowCount") %>
-	</div>
+	<!-- WEB APP 네비게이션 -->
+	<ul>
+		<li><a href="${pageContext.request.contextPath }/departments/getDepartmentsList">부서 목록</a></li>	
+		<li><a href="${pageContext.request.contextPath }/employees/getEmployeesList?limit=10">사원 목록</a></li>
+	</ul>
+	employees table total row count : <%=request.getAttribute("employeesRowCount") %>
 </body>
 </html>

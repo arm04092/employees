@@ -19,7 +19,7 @@ public class IndexServlet extends HttpServlet {
 		// model 호출
 		this.employeesDao = new EmployeesDao();
 		int employeesRowCount = employeesDao.selectEmployeesCount();
-		// int 타입 autoboxing -> Integer : Map에는 Reference 타입이 들어가야 하기 때문
+		// int 타입 autoboxing -> Integer : Map에는 Reference 타입이 들어가야 하기 때문에 boxing 필요
 		request.setAttribute("employeesRowCount", employeesRowCount);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
