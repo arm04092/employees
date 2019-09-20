@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>employeesList</title>
 </head>
-<body>
+<body> 
 	<!-- employeesList.jsp parameter: list -->
 	<h1>사원 목록</h1>
 	<!-- 테이블 행 개수 선택 폼 -->
