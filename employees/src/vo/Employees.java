@@ -1,5 +1,5 @@
 package vo;
-
+// VO
 public class Employees {
 	private int empNo;
 	private String birthDate;
@@ -43,5 +43,10 @@ public class Employees {
 	}
 	public void setHireDate(String hireDate) {
 		this.hireDate = hireDate;
+	}
+	@Override
+	public String toString() {
+		return "Employees [empNo=" + empNo + ", birthDate=" + birthDate + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", gender=" + gender + ", hireDate=" + hireDate + "]";
 	}
 }

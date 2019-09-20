@@ -16,6 +16,7 @@ public class IndexServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("/index URL 요청");
+		
 		// model 호출
 		this.employeesDao = new EmployeesDao();
 		int employeesRowCount = employeesDao.selectEmployeesCount();

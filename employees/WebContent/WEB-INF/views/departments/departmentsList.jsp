@@ -7,7 +7,7 @@
 <title>departmentsList</title>
 </head>
 <body>
-	<!-- servlet parameter: list -->
+	<!-- departmentsList.jsp parameter: list -->
 	<h1>부서 목록</h1>
 	<!-- 부서 목록 테이블 -->
 	<table border="1">
