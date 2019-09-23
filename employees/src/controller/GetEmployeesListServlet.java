@@ -14,9 +14,11 @@ import vo.Employees;
 
 @WebServlet("/employees/getEmployeesList")
 public class GetEmployeesListServlet extends HttpServlet {
-// 사원 목록 출력할 페이지 MODEL 추가
+	// 사원 목록 출력할 페이지 MODEL 추가
 	private EmployeesDao employeesDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 단위 테스트
+		System.out.println("/employees/getEmployeesList URL 요청");
 		System.out.println("GetEmployeesListServlet.doGet() param limit: " + request.getParameter("limit"));
 		// 목록 출력할 행의 개수를 저장하는 변수 생성
 		int limit = 10;

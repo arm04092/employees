@@ -17,6 +17,8 @@ public class GetDepartmentsListServlet extends HttpServlet {
 	// Controller에서 사용할 model 추가
 	private DepartmentsDao departmentsDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 단위 테스트
+		System.out.println("/departments/getDepartmentsList URL 요청");
 		// model 객체 생성
 		departmentsDao = new DepartmentsDao();
 		// forward할때 인자로 전달할 list 저장 

@@ -58,8 +58,12 @@
 	<ul>
 		<li><a href="${pageContext.request.contextPath }/departments/getDepartmentsList">부서 목록</a></li>	
 		<li><a href="${pageContext.request.contextPath }/employees/getEmployeesList?limit=10">사원 목록</a></li>
+		<li>
+			사원 목록 first_name
+			<a href="${pageContext.request.contextPath }/employees/getEmployeesListOrderBy?order=asc">오름차순(limit 50)</a>
+			<a href="${pageContext.request.contextPath }/employees/getEmployeesListOrderBy?order=desc">내림차순(limit 50)</a>
+		</li>
 	</ul>
-	employees table total row count : <%=request.getAttribute("employeesRowCount") %>
 </div>
 </body>
 </html>

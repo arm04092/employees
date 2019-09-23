@@ -21,6 +21,9 @@
 <div class="container">
 	<!-- employeesList.jsp parameter: list -->
 	<h1>사원 목록</h1>
+	<div>
+		<a href="${pageContext.request.contextPath}/">홈으로</a>
+	</div>
 	<!-- 테이블 행 개수 선택 폼 -->
 	<form method="get" action="${pageContext.request.contextPath}/employees/getEmployeesList">
 		<select name="limit">

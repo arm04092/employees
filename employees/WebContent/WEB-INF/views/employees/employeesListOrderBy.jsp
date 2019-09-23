@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>departmentsList</title>
+<title>employeesListOrderBy</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -19,26 +19,37 @@
 </head>
 <body>
 <div class="container">
-	<!-- departmentsList.jsp parameter: list -->
-	<h1>부서 목록</h1>
+	<!-- employeesList.jsp parameter: list, order -->
+	<h1>사원 목록</h1>
+	<div>
+		<h2>${order}</h2>
+	</div>
 	<div>
 		<a href="${pageContext.request.contextPath}/">홈으로</a>
 	</div>
-	<!-- 부서 목록 테이블 -->
+	<!-- 사원 목록 테이블 -->
 	<table class="table">
 		<thead>
 			<tr>
-				<th>부서 번호</th>
-				<th>부서 이름</th>
+				<th>사원 번호</th>
+				<th>사원 생일</th>
+				<th>사원 이름</th>
+				<th>사원 성</th>
+				<th>사원 성별</th>
+				<th>입사 날짜</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="department" items="${list }">
+			<c:forEach var="employees" items="${list }">
 				<tr>
-					<td>${department.deptNo }</td>
-					<td>${department.deptName }</td>
+					<td>${employees.empNo }</td>
+					<td>${employees.birthDate }</td>
+					<td>${employees.firstName }</td>
+					<td>${employees.lastName }</td>
+					<td>${employees.gender }</td>
+					<td>${employees.hireDate }</td>
 				</tr>
-			</c:forEach>	
+			</c:forEach>
 		</tbody>
 	</table>
 </div>
