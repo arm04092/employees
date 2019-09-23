@@ -25,7 +25,7 @@
 		<h2>${order}</h2>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/">홈으로</a>
+		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
 	</div>
 	<!-- 사원 목록 테이블 -->
 	<table class="table">

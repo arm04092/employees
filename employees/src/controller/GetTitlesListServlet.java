@@ -16,7 +16,7 @@ public class GetTitlesListServlet extends HttpServlet {
 	// Controller에서 사용할 Model 선언
 	private TitlesDao titlesDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("/titles/getTitlesList URL 호출");
+		System.out.println("/titles/getTitlesList URL 요청");
 		// Model 객체 생성
 		titlesDao = new TitlesDao();
 		// View에서 출력할 list 저장

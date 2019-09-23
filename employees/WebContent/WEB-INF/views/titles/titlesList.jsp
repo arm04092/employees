@@ -21,7 +21,7 @@
 <div class="container">
 	<h1>직책 목록</h1>
 	<div>
-		<a href="${pageContext.request.contextPath}/">홈으로</a>
+		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
 	</div>
 	<!-- 직책 테이블  -->
 	<table class="table">
