@@ -58,10 +58,10 @@ public class EmployeesDao {
 
 		return list;
 	}
-	// 사원 테이블의 전체 행 카운트 리턴하는 메소드
+	// employees 테이블의 전체 행 카운트 리턴하는 메소드
 	public int selectEmployeesCount() {
 		int count = 0;
-		// try-catch에서 쓸 변수들 미리 선언
+		// try-catch에서 쓸 변수들 미리 선언, 변수 생명주기 {}
 		final String SQL = "SELECT COUNT(*) FROM employees";
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -79,7 +79,7 @@ public class EmployeesDao {
 			if(rs.next()) {
 				count = rs.getInt("COUNT(*)");
 			}
-		} catch(Exception e) { // 자바의 변수 생명주기  {}
+		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
