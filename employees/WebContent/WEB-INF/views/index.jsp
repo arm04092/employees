@@ -38,11 +38,11 @@
 			</tr>
 			<tr>
 				<td>dept_emp</td>
-				<td>${deptManagerRowCount }</td>
+				<td>${deptEmpRowCount }</td>
 			</tr>
 			<tr>
 				<td>dept_manager</td>
-				<td>${deptEmpRowCount }</td>
+				<td>${deptManagerRowCount }</td>
 			</tr>
 			<tr>
 				<td>salaries</td>
