@@ -66,6 +66,19 @@
 		</div>
 		<a href="${pageContext.request.contextPath }/titles/getTitlesList" class="list-group-item list-group-item-action">업무 목록</a>
 		<a href="${pageContext.request.contextPath }/salaries/getSalariesStatistics" class="list-group-item list-group-item-action">연봉 통계</a>
+		<a href="${pageContext.request.contextPath }/employees/getEmployeesCountByGender" class="list-group-item list-group-item-action">성별 사원 수</a>
+		<a href="${pageContext.request.contextPath }/departments/getDepartmentsCountByDeptNo" class="list-group-item list-group-item-action">현재 부서별 사원 수</a>
+	</div>
+	<div>
+		<!-- 사원 번호 검색 폼 -->
+		<form method="post" action="${pageContext.request.contextPath }/employees/getEmployeesListBetween">
+			<label for="between">사원 번호</label>
+			<input type="number" name="begin">
+			<label for="between">~</label>
+			<input type="number" name="end">
+			<button type="submit" class="btn btn-info">사원 목록</button>
+			<label for="between">(범위: ${minEmpNo}~${maxEmpNo})</label>
+		</form>
 	</div>
 </div>
 </body>

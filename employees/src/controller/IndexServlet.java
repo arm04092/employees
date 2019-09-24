@@ -37,13 +37,17 @@ public class IndexServlet extends HttpServlet {
 		salariesDao = new SalariesDao();
 		titlesDao = new TitlesDao();
 		
+		// 출력할 데이터(테이블 정보, emp_no 범위)를 저장할 변수 생성
 		int employeesRowCount = employeesDao.selectEmployeesCount();
 		int departmentsRowCount = departmentsDao.selectDepartmentsCount();
 		int deptManagerRowCount = deptManagerDao.selectDeptManagerCount();
 		int deptEmpRowCount = deptEmpDao.selectDeptEmpCount();
 		int salariesRowCount = salariesDao.selectSalariesCount();
 		int titlesRowCount = titlesDao.selectTitlesCount();
+		int maxEmpNo = employeesDao.selectEmpNo("max");
+		int minEmpNo = employeesDao.selectEmpNo("min");
 		
+		// View에 인자로 넘길 데이터 request에 저장
 		// int 타입 autoboxing -> Integer : Map에는 Reference 타입이 들어가야 하기 때문에 boxing 필요
 		request.setAttribute("employeesRowCount", employeesRowCount);
 		request.setAttribute("departmentsRowCount", departmentsRowCount);
@@ -51,7 +55,10 @@ public class IndexServlet extends HttpServlet {
 		request.setAttribute("deptEmpRowCount", deptEmpRowCount);
 		request.setAttribute("salariesRowCount", salariesRowCount);
 		request.setAttribute("titlesRowCount", titlesRowCount);
+		request.setAttribute("maxEmpNo", maxEmpNo);
+		request.setAttribute("minEmpNo", minEmpNo);
 		
+		// View로 forward
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
 		dispatcher.forward(request, response);
 	}
