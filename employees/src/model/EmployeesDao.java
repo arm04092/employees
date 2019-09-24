@@ -104,7 +104,7 @@ public class EmployeesDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			// DB연결 , 드라이버 로딩
+			// 드라이버 로딩, DB연결
 			conn = DBHelper.getConnection();
 			// 쿼리문 저장
 			stmt = conn.prepareStatement(SQL);
