@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,37 @@ import db.DBHelper;
 import vo.Employees;
 
 public class EmployeesDao {
+	// 성별 사원 수를 리턴하는 메소드
+	public List<Map<String, Object>> selectEmployeesCountGroupByGender() {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		
+		final String SQL = "SELECT gender, COUNT(gender) FROM employees GROUP BY gender";
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			// 드라이버 로딩, DB연결
+			conn = DBHelper.getConnection();
+			// 쿼리문 저장
+			stmt = conn.prepareStatement(SQL);
+			//쿼리문 실행
+			rs = stmt.executeQuery();
+			// 결과값 Map으로 List에 저장하여 리턴
+			while(rs.next()) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("gender", rs.getString(1));
+				map.put("count", rs.getInt(2));
+				list.add(map);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 자원 반납
+			DBHelper.close(rs, conn, stmt);
+		}
+		
+		return list;
+	}
 	// employees테이블 에서 emp_no 범위 사이의 사원 목록을 출력하는 메소드
 	public List<Employees> selectEmployeesListBetween(int begin, int end) {
 		// 단위 테스트

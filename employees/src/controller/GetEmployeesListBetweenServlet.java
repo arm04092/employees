@@ -17,6 +17,7 @@ public class GetEmployeesListBetweenServlet extends HttpServlet {
 	private EmployeesDao employeesDao;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 단위 테스트
+		System.out.println("/employees/getEmployeesListBetween URL 요청");
 		System.out.println("GetEmployeesListBetweenServlet doPost() param begin: " + request.getParameter("begin"));
 		System.out.println("GetEmployeesListBetweenServlet doPost() param end: " +  request.getParameter("end"));
 		// parameter 저장
