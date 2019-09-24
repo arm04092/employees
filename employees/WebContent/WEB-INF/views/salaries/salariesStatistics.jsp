@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>titlesList</title>
+<title>salariesSatistics</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -19,23 +19,30 @@
 </head>
 <body>
 <div class="container">
-	<h1>업무 목록</h1>
+	<h1>연봉 통계</h1>
 	<div>
 		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
 	</div>
-	<!-- 직책 테이블  -->
-	<table class="table">
+	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>업무</th>
+				<th>count</th>
+				<th>sum</th>
+				<th>avg</th>
+				<th>max</th>
+				<th>min</th>
+				<th>std</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="titles" items="${list }">
-				<tr>
-					<td>${titles}</td>
-				</tr>
-			</c:forEach>
+			<tr>
+				<td>${map.count }</td>
+				<td>${map.sum }</td>
+				<td>${map.avg }</td>
+				<td>${map.max }</td>
+				<td>${map.min }</td>
+				<td>${map.std }</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

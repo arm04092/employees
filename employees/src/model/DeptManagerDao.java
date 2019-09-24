@@ -1,9 +1,10 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import db.DBHelper;
 
 public class DeptManagerDao {
 	// dept_manager 테이블의 전체 행 카운트 리턴하는 메소드
@@ -15,10 +16,8 @@ public class DeptManagerDao {
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			try {
-				// db 드라이버 로딩
-				Class.forName("org.mariadb.jdbc.Driver");
-				//db연결정보 입력하여 db연결
-				conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
+				// 드라이버 로딩, DB 연결
+				conn = DBHelper.getConnection();
 				// 쿼리문 저장
 				stmt = conn.prepareStatement(SQL);
 				//쿼리문 실행
@@ -30,15 +29,8 @@ public class DeptManagerDao {
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
-				try {
-					// 자원 반납
-					rs.close();
-					stmt.close();
-					conn.close();
-				} catch(Exception e) {
-					// 반납 안됐으면 예외 메세지 출력
-					e.printStackTrace();
-				}
+				// 자원 반납
+				DBHelper.close(rs, conn, stmt);
 			}
 			
 			return count;

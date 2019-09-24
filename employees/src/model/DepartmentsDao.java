@@ -1,12 +1,12 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import db.DBHelper;
 import vo.Departments;
 // MODEL
 public class DepartmentsDao {
@@ -20,10 +20,8 @@ public class DepartmentsDao {
 		ResultSet rs = null;
 		
 		try {
-			// 드라이버 로딩
-			Class.forName("org.mariadb.jdbc.Driver");
-			// db 연결
-			conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
+			// 드라이버 로딩, DB 연결
+			conn = DBHelper.getConnection();
 			// 쿼리 저장
 			stmt = conn.prepareStatement(SQL);
 			// 쿼리 실행
@@ -38,15 +36,8 @@ public class DepartmentsDao {
 		} catch(Exception e) { 
 			e.printStackTrace();
 		} finally {
-			// db연결에 쓰인 자원 반납
-			try {
-				rs.close();
-				stmt.close();
-				conn.close();
-				// close안됐으면 예외메세지 출력
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
+			// 자원 반납
+			DBHelper.close(rs, conn, stmt);
 		}
 		return list;
 	}
@@ -60,10 +51,8 @@ public class DepartmentsDao {
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			try {
-				// db 드라이버 로딩
-				Class.forName("org.mariadb.jdbc.Driver");
-				//db연결정보 입력하여 db연결
-				conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
+				// 드라이버 로딩, DB 연결
+				conn = DBHelper.getConnection();
 				// 쿼리문 저장
 				stmt = conn.prepareStatement(SQL);
 				//쿼리문 실행
@@ -75,15 +64,8 @@ public class DepartmentsDao {
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
-				try {
-					// 자원 반납
-					rs.close();
-					stmt.close();
-					conn.close();
-				} catch(Exception e) {
-					// 반납 안됐으면 예외 메세지 출력
-					e.printStackTrace();
-				}
+				// 자원 반납
+				DBHelper.close(rs, conn, stmt);
 			}
 			
 			return count;
