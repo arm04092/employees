@@ -25,6 +25,27 @@
 	<div>
 		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
 	</div>
+	<!-- 테이블 행 개수 선택 폼 -->
+	<div>rowPerPage</div>
+	<form method="get" action="${pageContext.request.contextPath}/employees/getEmployeesListByPage" class="form-group">
+		<div class="row">
+			<div class="input-group mb-3 col-sm-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="rowPerPage">사원 목록</label>
+				</div>
+				<select class="form-control" name="rowPerPage">
+					<option value="10">10개씩</option>
+					<option value="20">20개씩</option>
+					<option value="30">30개씩</option>
+					<option value="40">40개씩</option>
+					<option value="50">50개씩</option>
+				</select>
+				<div class="input-group-append">
+      				<button type="submit" class="btn btn-outline-dark">보기</button>
+   				</div>
+			</div>
+		</div>
+	</form>
 	<!-- 사원 테이블 -->
 	<table class="table">
 		<thead>

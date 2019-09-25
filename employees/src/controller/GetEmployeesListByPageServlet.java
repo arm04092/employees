@@ -26,6 +26,9 @@ public class GetEmployeesListByPageServlet extends HttpServlet {
 		}
 		// 출력할 행 개수
 		int rowPerPage = 10;
+		if(request.getParameter("rowPerPage") != null) {
+			rowPerPage = Integer.parseInt(request.getParameter("rowPerPage"));
+		}
 		// 마지막 페이지
 		int lastPage = 0;
 		lastPage = employeesDao.selectLastPage(rowPerPage);
