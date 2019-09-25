@@ -24,6 +24,7 @@
 	<div>
 		<h2>${order}</h2>
 	</div>
+	<!-- 홈 버튼 -->
 	<div>
 		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
 	</div>

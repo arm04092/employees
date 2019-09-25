@@ -71,12 +71,13 @@
 		</form>
 		</div>
 		<div class="list-group-item list-group-flush">
-			사원 목록 first_name
+			사원 목록 first_name 정렬
 			<a href="${pageContext.request.contextPath }/employees/getEmployeesListOrderBy?order=asc" class="list-group-item list-group-item-action">오름차순(limit 50)</a>
 			<a href="${pageContext.request.contextPath }/employees/getEmployeesListOrderBy?order=desc" class="list-group-item list-group-item-action">내림차순(limit 50)</a>
 		</div>
 		<a href="${pageContext.request.contextPath }/employees/getEmployeesCountByGender" class="list-group-item list-group-item-action">성별 사원 수</a>
 		<a href="${pageContext.request.contextPath }/departments/getDepartmentsCountByDeptNo" class="list-group-item list-group-item-action">현재 부서별 사원 수</a>
+		<a href="${pageContext.request.contextPath }/employees/getEmployeesListByPage" class="list-group-item list-group-item-action">사원 목록 페이징</a>
 		<!-- 부서 목록 -->
 		<a href="${pageContext.request.contextPath }/departments/getDepartmentsList" class="list-group-item list-group-item-action">부서 목록</a>
 		<!-- 업무 목록 -->	

@@ -20,6 +20,7 @@
 <body>
 <div class="container">
 	<h1>현재 부서별 사원 수</h1>
+	<!-- 홈 버튼 -->
 	<div>
 		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
 	</div>

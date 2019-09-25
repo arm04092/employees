@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.SalariesDao;
 
 @WebServlet("/salaries/getSalariesStatistics")
-public class GetSalariesStatistics extends HttpServlet {
+public class GetSalariesStatisticsServlet extends HttpServlet {
 	private SalariesDao salariesDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// model 객체 생성

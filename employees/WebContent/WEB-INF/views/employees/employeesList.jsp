@@ -20,6 +20,7 @@
 <body>
 <div class="container">
 	<!-- employeesList.jsp parameter: list -->
+	<!-- 홈 버튼 -->
 	<h1>사원 목록</h1>
 	<div>
 		<a href="${pageContext.request.contextPath}/" class="btn btn-primary">홈으로</a>
