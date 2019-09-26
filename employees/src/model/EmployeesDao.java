@@ -12,6 +12,40 @@ import db.DBHelper;
 import vo.Employees;
 
 public class EmployeesDao {
+	// 로그인 정보를 가져와 데이터베이스와 비교 후 로그인한 사원 번호를 리턴하는 메소드
+	public int login(Employees employees) {
+		int sessionEmpNo = 0;
+		
+		final String SQL = "SELECT emp_no FROM employees WHERE emp_no=? AND first_name=? AND last_name=?";
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			// 드라이버 로딩, DB연결
+			conn = DBHelper.getConnection();
+			// 쿼리문 저장
+			stmt = conn.prepareStatement(SQL);
+			// 쿼리 완성
+			stmt.setInt(1, employees.getEmpNo());
+			stmt.setString(2, employees.getFirstName());
+			stmt.setString(3, employees.getLastName());
+			//쿼리문 실행
+			rs = stmt.executeQuery();
+			// 로그인 정보가 일치하면 emp_no 저장하여 리턴
+			if(rs.next()) {
+				sessionEmpNo = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 자원 반납
+			DBHelper.close(rs, conn, stmt);
+		}
+		
+		return sessionEmpNo;
+	}
+	
 	// 사원 목록의 마지막 페이지를 리턴하는 메소드
 	public int selectLastPage(int rowPerPage) {
 		// 단위 테스트
