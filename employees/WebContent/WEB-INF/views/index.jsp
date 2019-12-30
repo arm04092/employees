@@ -65,9 +65,9 @@
 		<div class="list-group-item list-group-horizontal">
 		<form method="post" action="${pageContext.request.contextPath }/employees/getEmployeesListBetween">
 			<label for="between">사원 번호</label>
-			<input type="number" name="begin">
+			<input type="number" name="begin" value="10000">
 			<label for="between">~</label>
-			<input type="number" name="end">
+			<input type="number" name="end" value="10100">
 			<button type="submit" class="btn btn-outline-dark">사원 목록</button>
 			<label for="between">(범위: ${minEmpNo}~${maxEmpNo})</label>
 		</form>
@@ -86,6 +86,8 @@
 		<a href="${pageContext.request.contextPath }/titles/getTitlesList" class="list-group-item list-group-item-action">업무 목록</a>
 		<!-- 연봉 통계 -->
 		<a href="${pageContext.request.contextPath }/salaries/getSalariesStatistics" class="list-group-item list-group-item-action">연봉 통계</a>
+		<!-- 부서 별 매니저 목록 -->
+		<a href="${pageContext.request.contextPath}/departments/getDeptManagerList" class="list-group-item list-group-item-action">매니저 목록</a>
 	</div>
 </div>
 </body>

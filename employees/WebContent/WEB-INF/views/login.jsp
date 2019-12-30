@@ -13,15 +13,15 @@
 	<form method="post" action="${pageContext.request.contextPath}/login">	
 		<div>
 			<label for="empNo">emp_no</label>
-			<input type="text" name="empNo">
+			<input type="text" name="empNo" value="10000">
 		</div>
 		<div>
 			<label for="firstName">first_name</label>
-			<input type="text" name="firstName">
+			<input type="text" name="firstName" value="Lee">
 		</div>
 		<div>
 			<label for="lastName">last_name</label>
-			<input type="text" name="lastName">
+			<input type="text" name="lastName" value="Wonjun">
 		</div>
 		<div>
 			<button type="submit">로그인</button>
