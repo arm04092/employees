@@ -18,20 +18,20 @@ public class DBHelper {
 			}
 		}
 		
-		if(conn != null) {
+		if(stmt != null) {
 			try {
 				// 자원 반납
-				conn.close();
+				stmt.close();
 			} catch(Exception e) {
 				// 반납 안 됐으면 예외 메세지 출력
 				e.printStackTrace();
 			}
 		}
 		
-		if(stmt != null) {
+		if(conn != null) {
 			try {
 				// 자원 반납
-				stmt.close();
+				conn.close();
 			} catch(Exception e) {
 				// 반납 안 됐으면 예외 메세지 출력
 				e.printStackTrace();
